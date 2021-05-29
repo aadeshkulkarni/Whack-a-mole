@@ -39,7 +39,7 @@ function App() {
       const id = setInterval(randomGenerator, 500)
       return () => clearInterval(id)
     }
-  }, [moleNumber])
+  }, [timer])
 
   useEffect(() => {
     if (timer > 0) {
