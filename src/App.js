@@ -69,7 +69,7 @@ function App() {
       )}
       <img
         src={reset}
-        className="w-12 h-12"
+        className="w-12 h-12 rounded-full shadow-xl"
         onClick={() => {
           resetHandler()
         }}
@@ -84,7 +84,7 @@ function App() {
       <h2 className="text-2xl text-gray-800 p-2">Time Left: {timer}</h2>
       <div className="flex flex-wrap bg-green-700 w-320 h-320 shadow-xl rounded-sm p-1">
         <div
-          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
+          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 shadow-lg hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
           onClick={() => {
             timer > 0 && moleNumber === 1 && setScore(score + 50)
             setMoleNumber()
@@ -93,7 +93,7 @@ function App() {
           {moleNumber === 1 && <img src={mole} className="w-20 h-20" />}
         </div>
         <div
-          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
+          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 shadow-lg hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
           onClick={() => {
             timer > 0 && moleNumber === 2 && setScore(score + 50)
             setMoleNumber()
@@ -102,7 +102,7 @@ function App() {
           {moleNumber === 2 && <img src={mole} className="w-20 h-20" />}
         </div>
         <div
-          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
+          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 shadow-lg hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
           onClick={() => {
             timer > 0 && moleNumber === 3 && setScore(score + 50)
             setMoleNumber()
@@ -111,7 +111,7 @@ function App() {
           {moleNumber === 3 && <img src={mole} className="w-20 h-20" />}
         </div>
         <div
-          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
+          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 shadow-lg hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
           onClick={() => {
             timer > 0 && moleNumber === 4 && setScore(score + 50)
             setMoleNumber()
@@ -120,7 +120,7 @@ function App() {
           {moleNumber === 4 && <img src={mole} className="w-20 h-20" />}
         </div>
         <div
-          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
+          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 shadow-lg hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
           onClick={() => {
             timer > 0 && moleNumber === 5 && setScore(score + 50)
             setMoleNumber()
@@ -129,7 +129,7 @@ function App() {
           {moleNumber === 5 && <img src={mole} className="w-20 h-20" />}
         </div>
         <div
-          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
+          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 shadow-lg hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
           onClick={() => {
             timer > 0 && moleNumber === 6 && setScore(score + 50)
             setMoleNumber()
@@ -138,7 +138,7 @@ function App() {
           {moleNumber === 6 && <img src={mole} className="w-20 h-20" />}
         </div>
         <div
-          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
+          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 shadow-lg hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
           onClick={() => {
             timer > 0 && moleNumber === 7 && setScore(score + 50)
             setMoleNumber()
@@ -147,7 +147,7 @@ function App() {
           {moleNumber === 7 && <img src={mole} className="w-20 h-20" />}
         </div>
         <div
-          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
+          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 shadow-lg hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
           onClick={() => {
             timer > 0 && moleNumber === 8 && setScore(score + 50)
             setMoleNumber()
@@ -156,7 +156,7 @@ function App() {
           {moleNumber === 8 && <img src={mole} className="w-20 h-20" />}
         </div>
         <div
-          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
+          className="bg-green-800 bg-opacity-90 h-100 w-100 m-0.5 shadow-lg hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center animate-pulse"
           onClick={() => {
             timer > 0 && moleNumber === 9 && setScore(score + 50)
             setMoleNumber()
@@ -193,7 +193,7 @@ function App() {
               randomGenerator()
               setShowResult(false)
             }}
-            className="bg-white p-4 w-8/12 text-xl m-2 rounded-lg shadow-lg border border-gray-800 focus:outline-none active:outline-none active:bg-gray-50"
+            className="bg-white p-4 w-8/12 text-xl m-2 rounded-lg shadow-lg border border-gray-800 focus:outline-none active:outline-none active:bg-gray-50 md:w-4/12"
           >
             Play Again
           </button>
@@ -217,7 +217,7 @@ function App() {
               setScore(0)
               randomGenerator()
             }}
-            className="bg-white p-4 w-8/12 text-xl m-2 rounded-lg shadow-lg border border-gray-800 focus:outline-none active:outline-none active:bg-gray-50"
+            className="bg-white p-4 w-8/12 text-xl m-2 rounded-lg shadow-lg border border-gray-800 focus:outline-none active:outline-none active:bg-gray-50 md:w-4/12"
           >
             Play
           </button>
