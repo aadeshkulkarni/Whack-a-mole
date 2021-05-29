@@ -4,7 +4,6 @@ import mole from "./mole.svg"
 import reset from "./reset.svg"
 import Sound from "react-sound"
 import successSound from "./notification.mp3"
-import welcomeTone from "./welcomeTone.mp3"
 
 function App() {
   const COUNTDOWN_TIMER = 20
