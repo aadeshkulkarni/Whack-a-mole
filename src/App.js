@@ -6,7 +6,7 @@ import Sound from "react-sound"
 import successSound from "./notification.mp3"
 
 function App() {
-  const COUNTDOWN_TIMER = 20
+  const COUNTDOWN_TIMER = 30
   const RESET_TIMER = 3000
 
   const [soundStatus, setSoundStatus] = useState(false)
@@ -35,7 +35,7 @@ function App() {
   }, [score])
   useEffect(() => {
     if (timer > 0) {
-      const id = setInterval(randomGenerator, 600)
+      const id = setInterval(randomGenerator, 500)
       return () => clearInterval(id)
     }
   }, [moleNumber])
