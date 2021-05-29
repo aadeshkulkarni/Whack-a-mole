@@ -77,6 +77,7 @@ function App() {
       )}
       <Sound
         url={successSound}
+        ignoreMobileRestrictions={true}
         playStatus={soundStatus ? Sound.status.PLAYING : Sound.status.STOPPED}
         onLoading={() => console.log("Loading")}
         onPlaying={() => console.log("Playing now")}
