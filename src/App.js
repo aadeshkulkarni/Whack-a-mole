@@ -2,11 +2,15 @@ import { useState, useEffect } from "react"
 // import mole from "./bug-sharp.svg"
 import mole from "./mole.svg"
 import reset from "./reset.svg"
+import Sound from "react-sound"
+import successSound from "./notification.mp3"
+import welcomeTone from "./welcomeTone.mp3"
 
 function App() {
   const COUNTDOWN_TIMER = 20
   const RESET_TIMER = 3000
 
+  const [soundStatus, setSoundStatus] = useState(false)
   const [score, setScore] = useState(0)
   const [timer, setTimer] = useState(COUNTDOWN_TIMER)
   const [resetTimer, setResetTimer] = useState(RESET_TIMER)
@@ -24,9 +28,15 @@ function App() {
     const moleAtPosition = Math.ceil(Math.random() * 9)
     setMoleNumber(moleAtPosition)
   }
+
+  useEffect(() => {
+    if (score != 0) {
+      setSoundStatus(true)
+    }
+  }, [score])
   useEffect(() => {
     if (timer > 0) {
-      const id = setInterval(randomGenerator, 500)
+      const id = setInterval(randomGenerator, 600)
       return () => clearInterval(id)
     }
   }, [moleNumber])
@@ -38,8 +48,6 @@ function App() {
     }
     if (timer === 0) {
       const highScore = JSON.parse(localStorage.getItem("highScore"))
-      console.log(highScore)
-      console.log(score)
       if (score > highScore) {
         localStorage.setItem("highScore", score)
       }
@@ -67,6 +75,16 @@ function App() {
           </div>
         </div>
       )}
+      <Sound
+        url={successSound}
+        playStatus={soundStatus ? Sound.status.PLAYING : Sound.status.STOPPED}
+        onLoading={() => console.log("Loading")}
+        onPlaying={() => console.log("Playing now")}
+        onFinishedPlaying={() => {
+          setSoundStatus(false)
+        }}
+      />
+
       <img
         src={reset}
         className="w-12 h-12 rounded-full shadow-xl"
