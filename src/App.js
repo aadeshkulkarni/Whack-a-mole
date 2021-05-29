@@ -26,7 +26,7 @@ function App() {
   }
   useEffect(() => {
     if (timer > 0) {
-      const id = setInterval(randomGenerator, 600)
+      const id = setInterval(randomGenerator, 300)
       return () => clearInterval(id)
     }
   }, [moleNumber])
