@@ -5,9 +5,8 @@ import Sound from "react-sound"
 import successSound from "./notification.mp3"
 import ReactGA from "react-ga"
 
-ReactGA.initialize("UA-00000-1")
-
 function App() {
+  ReactGA.initialize("G-M81HVVHN6S")
   const COUNTDOWN_TIMER = 30
   const RESET_TIMER = 3000
 
