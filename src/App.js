@@ -16,6 +16,8 @@ function App() {
 
   const COUNTDOWN_TIMER = 30
   const RESET_TIMER = 3000
+  const [loader, setLoader] = useState(false)
+  const [loaderMessage, setLoaderMessage] = useState("")
   const [leaderscreen, setLeaderscreen] = useState(false)
   const [leaderboard, setLeaderboard] = useState([])
   const [soundStatus, setSoundStatus] = useState(false)
@@ -80,24 +82,32 @@ function App() {
         action: name,
         label: score,
       })
-      setShowResult(true)
+      setLoader(true)
+      setLoaderMessage("Loading results...")
+      setTimeout(() => {
+        setLoader(false)
+        setLoaderMessage("")
+        setShowResult(true)
+      }, 3000)
     }
   }, [timer])
 
   const resetHandler = (e) => {
+    setTimer(-1)
+    setLoader(true)
+    setLoaderMessage("Get Ready to Whack")
+    countdowntimerId = setTimeout(() => {
+      setLoader(false)
+      setLoaderMessage("")
+      setTimer(COUNTDOWN_TIMER)
+      setScore(0)
+      randomGenerator()
+    }, 3000)
     ReactGA.event({
       category: "reset",
       action: "reset clicked",
       label: name,
     })
-    setTimer(100)
-    setResetScreen(true)
-    countdowntimerId = setTimeout(() => {
-      setResetScreen(false)
-      setTimer(COUNTDOWN_TIMER)
-      setScore(0)
-      randomGenerator()
-    }, RESET_TIMER)
   }
 
   return (
@@ -338,7 +348,7 @@ function App() {
                 label: name,
               })
             }}
-            className="w-8/12 p-4 m-2 text-xl bg-white border border-gray-800 rounded-lg shadow-lg focus:outline-none active:outline-none active:bg-gray-50 md:w-4/12"
+            className="w-8/12 p-4 m-2 text-xl bg-white bg-green-500 border border-gray-800 rounded-lg shadow-lg opacity-100 focus:outline-none active:outline-none active:bg-gray-50 md:w-4/12 "
           >
             Play Again
           </button>
@@ -398,20 +408,32 @@ function App() {
           >
             X
           </span>
-          <h2 className="p-2 text-3xl text-white">Leaderboard</h2>
+          <h2 className="p-2 mb-4 text-3xl text-white">Leaderboard</h2>
 
           {leaderboard && leaderboard.length === 0 && (
-            <span className="text-lg text-white">Data does not exist</span>
+            <span className="text-lg text-white">Loading data...</span>
+          )}
+          {leaderboard && leaderboard.length > 0 && (
+            <div className="grid w-10/12 grid-cols-5 p-2 text-lg bg-teal-600 bg-opacity-100 text-gray-50">
+              <div className="col-span-1"></div>
+              <div className="col-span-3">Player</div>
+              <div className="col-span-1">Score</div>
+            </div>
           )}
           {leaderboard &&
             leaderboard.length > 0 &&
             leaderboard.map((record, index) => (
-              <div className="grid w-10/12 grid-cols-5 p-2 text-lg text-white bg-gray-900 border border-white bg-opacity-90">
+              <div className="grid w-10/12 grid-cols-5 p-2 text-lg text-gray-800 bg-white bg-opacity-100 border border-gray-100">
                 <div className="col-span-1">{index + 1}</div>
                 <div className="col-span-3">{record.user}</div>
                 <div className="col-span-1">{record.score}</div>
               </div>
             ))}
+        </div>
+      )}
+      {loader && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center w-full h-hull animate-background">
+          <h1 className="p-2 text-3xl text-white">{loaderMessage}</h1>
         </div>
       )}
     </div>
