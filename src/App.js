@@ -5,8 +5,13 @@ import Sound from "react-sound"
 import successSound from "./notification.mp3"
 import ReactGA from "react-ga"
 
+ReactGA.initialize("UA-198335802-1")
+
 function App() {
-  ReactGA.initialize("UA-198335802-1")
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname)
+  }, [])
+
   const COUNTDOWN_TIMER = 30
   const RESET_TIMER = 3000
 
@@ -294,15 +299,15 @@ function App() {
           <h2 className="p-2 text-2xl text-white">Current score: {score}</h2>
           <button
             onClick={() => {
+              setTimer(COUNTDOWN_TIMER)
+              setScore(0)
+              randomGenerator()
+              setShowResult(false)
               ReactGA.event({
                 category: "play",
                 action: "Play again button clicked",
                 label: name,
               })
-              setTimer(COUNTDOWN_TIMER)
-              setScore(0)
-              randomGenerator()
-              setShowResult(false)
             }}
             className="w-8/12 p-4 m-2 text-xl bg-white border border-gray-800 rounded-lg shadow-lg focus:outline-none active:outline-none active:bg-gray-50 md:w-4/12"
           >
