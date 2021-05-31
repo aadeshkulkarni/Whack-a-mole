@@ -4,11 +4,11 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        320: "320px",
+        320: "340px",
         100: "100px",
       },
       width: {
-        320: "320px",
+        320: "340px",
         100: "100px",
       },
       fontFamily: {
@@ -20,9 +20,14 @@ module.exports = {
           "45%": { opacity: "0.6" },
           "100%": { opacity: "1" },
         },
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" },
+        },
       },
       animation: {
         show: "show 1s ease-in-out",
+        wiggle: "wiggle 1s ease-in-out infinite",
       },
     },
   },
