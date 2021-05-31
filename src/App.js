@@ -96,7 +96,7 @@ function App() {
     setTimer(-1)
     setLoader(true)
     setLoaderMessage("Get Ready to Whack")
-    countdowntimerId = setTimeout(() => {
+    setTimeout(() => {
       setLoader(false)
       setLoaderMessage("")
       setTimer(COUNTDOWN_TIMER)
@@ -373,7 +373,7 @@ function App() {
             onChange={(e) => {
               setName(e.target.value)
             }}
-            className="w-8/12 h-16 p-4 pb-2 m-2 font-semibold text-center rounded-lg shadow-lg text-md focus-within:outline-none md:w-4/12 focus:ring-4 focus:ring-green-600 focus:ring-opacity-50 focus:ring-inset"
+            className="w-8/12 h-16 p-4 pb-2 m-2 font-semibold text-center rounded-lg shadow-lg text-md focus-within:outline-none md:w-4/12 focus:ring-2 focus:ring-teal-600 focus:ring-opacity-50 focus:ring-inset"
           />
           <button
             onClick={(event) => {
