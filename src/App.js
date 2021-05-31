@@ -14,7 +14,7 @@ function App() {
     ReactGA.pageview(window.location.pathname)
   }, [])
 
-  const COUNTDOWN_TIMER = 10
+  const COUNTDOWN_TIMER = 30
   const RESET_TIMER = 3000
   const [leaderscreen, setLeaderscreen] = useState(false)
   const [leaderboard, setLeaderboard] = useState([])
