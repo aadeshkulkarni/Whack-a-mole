@@ -101,7 +101,7 @@ function App() {
   }
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-full h-full bg-gradient-to-r from-green-600 to-green-700 bg-opacity-20 font-raleway">
+    <div className="relative flex flex-col items-center justify-center w-full h-full bg-emerald-600 bg-opacity-80 font-raleway">
       {resetScreen && (
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center w-full bg-gray-800 h-hull">
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center w-full bg-black h-hull animate-pulse">
@@ -156,14 +156,14 @@ function App() {
         </div>
       </div>
 
-      <div className="flex flex-wrap p-2 mb-8 border-4 border-separate border-green-900 rounded-lg shadow-xl bg-gradient-to-r from-green-900 to-green-900 w-320 h-320">
+      <div className="flex flex-wrap p-2 mb-8 border-4 border-separate rounded-lg shadow-xl border-emerald-700 border-opacity-60 bg-emerald-700 bg-opacity-60 w-320 h-320">
         <div
           tabIndex="1"
           className={`${
             moleNumber === 1
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          }  bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer flex justify-center items-center rounded-full active:outline-none focus:outline-none focus-within:outline-none`}
+          }  bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer flex justify-center items-center  active:outline-none focus:outline-none focus-within:outline-none`}
           // onFocus={() => console.log("Executed")}
           onClick={() => {
             timer > 0 && moleNumber === 1 && setScore(score + 50)
@@ -178,7 +178,7 @@ function App() {
             moleNumber === 2
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          }  bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center rounded-full`}
+          }  bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center `}
           onClick={() => {
             timer > 0 && moleNumber === 2 && setScore(score + 50)
           }}
@@ -192,7 +192,7 @@ function App() {
             moleNumber === 3
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center rounded-full`}
+          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center `}
           onClick={() => {
             timer > 0 && moleNumber === 3 && setScore(score + 50)
           }}
@@ -206,7 +206,7 @@ function App() {
             moleNumber === 4
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center rounded-full`}
+          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center `}
           onClick={() => {
             timer > 0 && moleNumber === 4 && setScore(score + 50)
           }}
@@ -220,7 +220,7 @@ function App() {
             moleNumber === 5
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center rounded-full`}
+          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center `}
           onClick={() => {
             timer > 0 && moleNumber === 5 && setScore(score + 50)
           }}
@@ -234,7 +234,7 @@ function App() {
             moleNumber === 6
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center rounded-full`}
+          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center `}
           onClick={() => {
             timer > 0 && moleNumber === 6 && setScore(score + 50)
           }}
@@ -248,7 +248,7 @@ function App() {
             moleNumber === 7
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center rounded-full`}
+          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center `}
           onClick={() => {
             timer > 0 && moleNumber === 7 && setScore(score + 50)
           }}
@@ -262,7 +262,7 @@ function App() {
             moleNumber === 8
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center rounded-full`}
+          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center `}
           onClick={() => {
             timer > 0 && moleNumber === 8 && setScore(score + 50)
           }}
@@ -276,7 +276,7 @@ function App() {
             moleNumber === 9
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center rounded-full`}
+          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center `}
           onClick={() => {
             timer > 0 && moleNumber === 9 && setScore(score + 50)
           }}
