@@ -4,6 +4,8 @@ import reset from "./reset.svg"
 import Sound from "react-sound"
 import successSound from "./notification.mp3"
 import ReactGA from "react-ga"
+import config from "./config"
+import * as firebaseService from "./services/firestore"
 
 ReactGA.initialize("UA-198335802-1")
 
@@ -12,9 +14,10 @@ function App() {
     ReactGA.pageview(window.location.pathname)
   }, [])
 
-  const COUNTDOWN_TIMER = 30
+  const COUNTDOWN_TIMER = 10
   const RESET_TIMER = 3000
-
+  const [leaderscreen, setLeaderscreen] = useState(false)
+  const [leaderboard, setLeaderboard] = useState([])
   const [soundStatus, setSoundStatus] = useState(false)
   const [score, setScore] = useState(0)
   const [timer, setTimer] = useState(COUNTDOWN_TIMER)
@@ -36,6 +39,16 @@ function App() {
       setMoleNumber(moleAtPosition)
     }
   }
+  async function addLeaderboardFn(name, score) {
+    const data = await firebaseService.addLeaderBoard(name, score)
+    return data
+  }
+
+  async function getLeaderboardFn() {
+    const data = await firebaseService.getLeaderboard()
+    console.log(data)
+    setLeaderboard(data)
+  }
 
   useEffect(() => {
     if (score != 0) {
@@ -55,6 +68,9 @@ function App() {
       return () => clearInterval(countdowntimerId)
     }
     if (timer === 0) {
+      setTimer(-1)
+      const res = addLeaderboardFn(name, score)
+
       const highScore = JSON.parse(localStorage.getItem("highScore"))
       if (score > highScore) {
         localStorage.setItem("highScore", score)
@@ -85,7 +101,7 @@ function App() {
   }
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-full h-full bg-gradient-to-r from-green-700 to-green-600 bg-opacity-20 font-raleway">
+    <div className="relative flex flex-col items-center justify-center w-full h-full bg-gradient-to-r from-green-600 to-green-700 bg-opacity-20 font-raleway">
       {resetScreen && (
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center w-full bg-gray-800 h-hull">
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center w-full bg-black h-hull animate-pulse">
@@ -97,8 +113,8 @@ function App() {
         url={successSound}
         ignoreMobileRestrictions={true}
         playStatus={soundStatus ? Sound.status.PLAYING : Sound.status.STOPPED}
-        onLoading={() => console.log("Loading")}
-        onPlaying={() => console.log("Playing now")}
+        // onLoading={() => console.log("Loading")}
+        // onPlaying={() => console.log("Playing now")}
         onFinishedPlaying={() => {
           setSoundStatus(false)
         }}
@@ -148,7 +164,7 @@ function App() {
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
           }  bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer flex justify-center items-center rounded-full active:outline-none focus:outline-none focus-within:outline-none`}
-          onFocus={() => console.log("Executed")}
+          // onFocus={() => console.log("Executed")}
           onClick={() => {
             timer > 0 && moleNumber === 1 && setScore(score + 50)
           }}
@@ -298,6 +314,20 @@ function App() {
           <h2 className="p-2 text-2xl text-white">Current score: {score}</h2>
           <button
             onClick={() => {
+              getLeaderboardFn()
+              setLeaderscreen(true)
+              ReactGA.event({
+                category: "leaderboard",
+                action: "leaderboard checked",
+                label: name,
+              })
+            }}
+            className="w-8/12 p-4 m-2 text-xl bg-white border border-gray-800 rounded-lg shadow-lg focus:outline-none active:outline-none active:bg-gray-50 md:w-4/12"
+          >
+            Leaderboard
+          </button>
+          <button
+            onClick={() => {
               setTimer(COUNTDOWN_TIMER)
               setScore(0)
               randomGenerator()
@@ -333,7 +363,7 @@ function App() {
             onChange={(e) => {
               setName(e.target.value)
             }}
-            className="w-8/12 h-16 p-4 pb-2 m-2 font-semibold text-center rounded-lg shadow-lg text-md focus-within:outline-none md:w-4/12 focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 focus:ring-inset"
+            className="w-8/12 h-16 p-4 pb-2 m-2 font-semibold text-center rounded-lg shadow-lg text-md focus-within:outline-none md:w-4/12 focus:ring-4 focus:ring-green-600 focus:ring-opacity-50 focus:ring-inset"
           />
           <button
             onClick={(event) => {
@@ -351,13 +381,37 @@ function App() {
             }}
             disabled={name.trim() === ""}
             className={`w-8/12 p-4 m-2 text-xl text-white  border border-gray-800 rounded-lg shadow-lg bg-opacity-90 focus:outline-none active:outline-none active:bg-gray-50 md:w-4/12 ${
-              name.trim() === ""
+              name.trim() === "" || name.trim().length < 3
                 ? "opacity-0 bg-gray-400"
                 : "opacity-100 bg-green-500 animate-pulse"
             }`}
           >
             Play
           </button>
+        </div>
+      )}
+      {leaderscreen && (
+        <div className="absolute inset-0 flex flex-col items-center justify-center w-full bg-black h-hull">
+          <span
+            className="absolute text-3xl text-white top-8 right-8"
+            onClick={() => setLeaderscreen(false)}
+          >
+            X
+          </span>
+          <h2 className="p-2 text-3xl text-white">Leaderboard</h2>
+
+          {leaderboard && leaderboard.length === 0 && (
+            <span className="text-lg text-white">Data does not exist</span>
+          )}
+          {leaderboard &&
+            leaderboard.length > 0 &&
+            leaderboard.map((record, index) => (
+              <div className="grid w-10/12 grid-cols-5 p-2 text-lg text-white bg-gray-900 border border-white bg-opacity-90">
+                <div className="col-span-1">{index + 1}</div>
+                <div className="col-span-3">{record.user}</div>
+                <div className="col-span-1">{record.score}</div>
+              </div>
+            ))}
         </div>
       )}
     </div>
