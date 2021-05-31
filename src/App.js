@@ -63,7 +63,7 @@ function App() {
         category: "score",
         action: "Game finished",
         label: name,
-        value: score,
+        value: +score,
       })
       setShowResult(true)
     }
