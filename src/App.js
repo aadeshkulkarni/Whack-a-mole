@@ -61,9 +61,8 @@ function App() {
       }
       ReactGA.event({
         category: "score",
-        action: "Game finished",
-        label: name,
-        value: +score,
+        action: name,
+        label: score,
       })
       setShowResult(true)
     }
