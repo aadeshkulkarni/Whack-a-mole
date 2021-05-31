@@ -31,8 +31,8 @@ module.exports = {
           "50%": { transform: "rotate(3deg)" },
         },
         background: {
-          "0%": { backgroundColor: "#047857" },
-          "50%": { backgroundColor: "#0E7490" },
+          "0%": { backgroundColor: "#155E75" },
+          "50%": { backgroundColor: "#115E59" },
           "100%": { backgroundColor: "#14B8A6" },
         },
       },
