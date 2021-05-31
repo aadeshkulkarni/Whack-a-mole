@@ -54,6 +54,12 @@ function App() {
       if (score > highScore) {
         localStorage.setItem("highScore", score)
       }
+      ReactGA.event({
+        category: "score",
+        action: "Game finished",
+        label: name,
+        value: score,
+      })
       setShowResult(true)
     }
   }, [timer])
@@ -62,7 +68,7 @@ function App() {
     ReactGA.event({
       category: "reset",
       action: "reset clicked",
-      value: name,
+      label: name,
     })
     setTimer(100)
     setResetScreen(true)
@@ -267,7 +273,7 @@ function App() {
           ReactGA.event({
             category: "portfolio",
             action: "Portfolio clicked",
-            value: name,
+            label: name,
           })
           window.location.href = "https://aadeshkulkarni.me/"
         }}
@@ -291,7 +297,7 @@ function App() {
               ReactGA.event({
                 category: "play",
                 action: "Play again button clicked",
-                value: name,
+                label: name,
               })
               setTimer(COUNTDOWN_TIMER)
               setScore(0)
@@ -336,7 +342,7 @@ function App() {
               ReactGA.event({
                 category: "play",
                 action: "Play button clicked",
-                value: name,
+                label: name,
               })
             }}
             disabled={name.trim() === ""}
