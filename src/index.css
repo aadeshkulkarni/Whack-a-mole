@@ -8,3 +8,9 @@ body,
 #root {
   @apply w-full h-full;
 }
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
