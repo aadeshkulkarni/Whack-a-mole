@@ -6,6 +6,8 @@ import successSound from "./notification.mp3"
 import ReactGA from "react-ga"
 import config from "./config"
 import * as firebaseService from "./services/firestore"
+import mute from "./asset/volume-mute.svg"
+import medium from "./asset/volume-medium.svg"
 
 ReactGA.initialize("UA-198335802-1")
 
@@ -16,6 +18,7 @@ function App() {
 
   const COUNTDOWN_TIMER = 30
   const RESET_TIMER = 3000
+  const [sound, setSound] = useState(true)
   const [loader, setLoader] = useState(false)
   const [loaderMessage, setLoaderMessage] = useState("")
   const [leaderscreen, setLeaderscreen] = useState(false)
@@ -122,7 +125,9 @@ function App() {
       <Sound
         url={successSound}
         ignoreMobileRestrictions={true}
-        playStatus={soundStatus ? Sound.status.PLAYING : Sound.status.STOPPED}
+        playStatus={
+          sound && soundStatus ? Sound.status.PLAYING : Sound.status.STOPPED
+        }
         // onLoading={() => console.log("Loading")}
         // onPlaying={() => console.log("Playing now")}
         onFinishedPlaying={() => {
@@ -135,6 +140,21 @@ function App() {
           Highest score: {localStorage.getItem("highScore")}
         </h1>
       )} */}
+      <div className="absolute z-10 top-5 right-5">
+        {sound ? (
+          <img
+            src={medium}
+            className="z-10 w-8 h-8"
+            onClick={() => setSound(false)}
+          />
+        ) : (
+          <img
+            src={mute}
+            className="z-10 w-8 h-8"
+            onClick={() => setSound(true)}
+          />
+        )}
+      </div>
       <div className="absolute flex items-center justify-around w-11/12 top-5 lg:top-20">
         <h1 className="p-2 text-3xl text-gray-800"> Whack-A-Mole</h1>
       </div>
