@@ -128,29 +128,22 @@ function App() {
         playStatus={
           sound && soundStatus ? Sound.status.PLAYING : Sound.status.STOPPED
         }
-        // onLoading={() => console.log("Loading")}
-        // onPlaying={() => console.log("Playing now")}
         onFinishedPlaying={() => {
           setSoundStatus(false)
         }}
       />
 
-      {/* {localStorage.getItem("highScore") && (
-        <h1 className="p-2 text-2xl text-gray-800">
-          Highest score: {localStorage.getItem("highScore")}
-        </h1>
-      )} */}
-      <div className="absolute z-10 top-5 right-5">
-        {sound ? (
+      <div className="absolute top-5 right-5">
+        {sound && !leaderscreen ? (
           <img
             src={medium}
-            className="z-10 w-8 h-8"
+            className="z-10 w-8 h-8 cursor-pointer"
             onClick={() => setSound(false)}
           />
         ) : (
           <img
             src={mute}
-            className="z-10 w-8 h-8"
+            className="z-10 w-8 h-8 cursor-pointer"
             onClick={() => setSound(true)}
           />
         )}
@@ -423,7 +416,7 @@ function App() {
       {leaderscreen && (
         <div className="absolute inset-0 flex flex-col items-center justify-center w-full bg-black h-hull">
           <span
-            className="absolute text-3xl text-white top-8 right-8"
+            className="absolute text-3xl text-white cursor-pointer top-8 right-8"
             onClick={() => setLeaderscreen(false)}
           >
             X
