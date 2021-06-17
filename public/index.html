@@ -53,7 +53,7 @@
               <ins class="adsbyvmax" id="p_interstitial" data-adspot-key="2eca23dc" data-pkg-name="com.aadeshk.wammyjio"></ins>
           </div>`;
       };
-
+      
       function cacheInStream() {
           if (!isInStreamReady) {
               document.getElementById("websdk").innerHTML = `<div id="ad4">
@@ -91,7 +91,7 @@
           console.log("JioWebSDK: onAdMediaEnd", placementid);
           placementid == placementid_instream && (isInStreamReady = false);
       };        
-
+      showDynamicInterstitial();
   </script>
   <script src="https://jioads.akamaized.net/SingleWEBSDK/stable/ad.js"></script>
   </body>
