@@ -115,6 +115,7 @@ function App() {
 
   return (
     <div className="relative flex flex-col items-center justify-center w-full h-full bg-emerald-600 bg-opacity-80 font-raleway">
+      
       {resetScreen && (
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center w-full bg-gray-800 h-hull">
           <div className="absolute inset-0 z-10 flex flex-col items-center justify-center w-full bg-black h-hull animate-pulse">
@@ -137,18 +138,18 @@ function App() {
         {sound && !leaderscreen ? (
           <img
             src={medium}
-            className="z-10 w-8 h-8 cursor-pointer"
+            className="z-20 w-8 h-8 cursor-pointer"
             onClick={() => setSound(false)}
           />
         ) : (
           <img
             src={mute}
-            className="z-10 w-8 h-8 cursor-pointer"
+            className="z-20 w-8 h-8 cursor-pointer"
             onClick={() => setSound(true)}
           />
         )}
       </div>
-      <div className="absolute flex items-center justify-around w-11/12 top-5 lg:top-20">
+      <div className="absolute flex items-center justify-around w-8/12 top-5 lg:top-20">
         <h1 className="p-2 text-3xl text-gray-800"> Whack-A-Mole</h1>
       </div>
       <h1 className="p-2 text-2xl font-light text-gray-800">{name}</h1>
@@ -309,7 +310,7 @@ function App() {
           )}
         </div>
       </div>
-      <h6
+      {/* <h6
         className="absolute py-2 text-sm font-semibold bottom-2 hover:opacity-50 animate-pulse"
         onClick={(e) => {
           e.preventDefault()
@@ -323,7 +324,7 @@ function App() {
       >
         Designed with <span className="text-red-900">&hearts;</span> by Aadesh
         Kulkarni
-      </h6>
+      </h6> */}
       {showResult && (
         <div className="absolute inset-0 flex flex-col items-center justify-center w-full bg-black h-hull">
           <h2 className="p-2 text-3xl text-white">Whack A Mole</h2>
@@ -335,7 +336,7 @@ function App() {
               </h2>
             )}
           <h2 className="p-2 text-2xl text-white">Current score: {score}</h2>
-          <button
+          {/* <button
             onClick={() => {
               getLeaderboardFn()
               setLeaderscreen(true)
@@ -348,7 +349,7 @@ function App() {
             className="w-8/12 p-4 m-2 text-xl bg-white border border-gray-800 rounded-lg shadow-lg focus:outline-none active:outline-none active:bg-gray-50 md:w-4/12"
           >
             Leaderboard
-          </button>
+          </button> */}
           <button
             onClick={() => {
               setTimer(COUNTDOWN_TIMER)
@@ -377,7 +378,7 @@ function App() {
             Just Whack the mole <br />
             Whack it real bad!
           </p>
-          <input
+          {/* <input
             autoFocus
             type="text"
             placeholder="Enter player name"
@@ -387,7 +388,7 @@ function App() {
               setName(e.target.value)
             }}
             className="w-8/12 h-16 p-4 pb-2 m-2 font-semibold text-center rounded-lg shadow-lg text-md focus-within:outline-none md:w-4/12 focus:ring-2 focus:ring-teal-600 focus:ring-opacity-50 focus:ring-inset"
-          />
+          /> */}
           <button
             onClick={(event) => {
               event.preventDefault()
@@ -402,12 +403,8 @@ function App() {
                 label: name,
               })
             }}
-            disabled={name.trim() === ""}
-            className={`w-8/12 p-4 m-2 text-xl text-white  border border-gray-800 rounded-lg shadow-lg bg-opacity-90 focus:outline-none active:outline-none active:bg-gray-50 md:w-4/12 ${
-              name.trim() === "" || name.trim().length < 3
-                ? "opacity-0 bg-gray-400"
-                : "opacity-100 bg-green-500 animate-pulse"
-            }`}
+            className={`w-8/12 p-4 m-2 text-xl text-white  border border-gray-800 rounded-lg shadow-lg bg-opacity-90 focus:outline-none active:outline-none active:bg-gray-50 md:w-4/12 opacity-100 bg-green-500 animate-pulse"
+            `}
           >
             Play
           </button>
