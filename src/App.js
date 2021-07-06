@@ -12,10 +12,6 @@ import medium from "./asset/volume-medium.svg"
 ReactGA.initialize("UA-198335802-1")
 
 function App() {
-  useEffect(() => {
-    ReactGA.pageview(window.location.pathname)
-  }, [])
-
   const COUNTDOWN_TIMER = 30
   const RESET_TIMER = 3000
   const [sound, setSound] = useState(true)
@@ -38,6 +34,17 @@ function App() {
 
   let countdowntimerId
 
+  function showDynamicInterstitial() {
+    document.getElementById("websdk").innerHTML = `<div id="ad3">
+        <ins class="adsbyvmax" id="p_interstitial" data-adspot-key="2eca23dc" data-pkg-name="com.aadeshk.wammyjio"></ins>
+    </div>`;
+  };
+
+  useEffect(() => {
+    ReactGA.pageview(window.location.pathname)
+    showDynamicInterstitial();
+  }, [])
+
   function randomGenerator() {
     if (timer > 0) {
       const moleAtPosition = Math.ceil(Math.random() * 9)
@@ -58,6 +65,7 @@ function App() {
   useEffect(() => {
     if (score != 0) {
       setSoundStatus(true)
+      
     }
   }, [score])
   useEffect(() => {
@@ -151,6 +159,9 @@ function App() {
       </div>
       <div className="absolute flex items-center justify-around w-8/12 top-5 lg:top-20">
         <h1 className="p-2 text-3xl text-gray-800"> Whack-A-Mole</h1>
+      </div>
+      <div className="absolute top-15" id="websdk">
+
       </div>
       <h1 className="p-2 text-2xl font-light text-gray-800">{name}</h1>
 
