@@ -35,9 +35,8 @@ function App() {
   let countdowntimerId
 
   function showDynamicInterstitial() {
-    document.getElementById("websdk").innerHTML = `<div id="ad3">
-        <ins class="adsbyvmax" id="p_interstitial" data-adspot-key="2eca23dc" data-pkg-name="com.aadeshk.wammyjio"></ins>
-    </div>`;
+    console.log("Executing");
+    document.getElementById("websdk").innerHTML = `<ins class="adsbyvmax" id="p_interstitial" data-adspot-key="2eca23dc" data-pkg-name="com.aadeshk.wammyjio"></ins>`;
   };
 
   useEffect(() => {
