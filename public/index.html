@@ -31,6 +31,7 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="websdk"></div>
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -42,6 +43,28 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    
+    <script>
+       var ADCALLBACK = {platform: 'an'}
+        var VMAXSDK = VMAXSDK || {};
+
+        VMAXSDK.onAdReady = function (placementid, vastXML) {
+            console.log ("JioWebSDK: onAdReady "+placementid+" placementid_instream "+placementid_instream);
+            placementid == placementid_instream && (isInStreamReady = true);
+        };
+
+        VMAXSDK.onAdError = function (placementid, error) {            
+            console.log ("JioWebSDK: onAdError "+placementid+" error "+error);
+            placementid == placementid_instream && (isInStreamReady = false);
+        };
+        VMAXSDK.onAdClose = function (placementid) {
+            console.log ("JioWebSDK: onAdClose "+placementid);
+            placementid == placementid_instream && (isInStreamReady = false);
+        };        
+
+        VMAXSDK.onAdMediaEnd = function (containerid, placementid) {
+            console.log("JioWebSDK: onAdMediaEnd", placementid);
+            placementid == placementid_instream && (isInStreamReady = false);
+        };        
+    </script>
   </body>
 </html>
