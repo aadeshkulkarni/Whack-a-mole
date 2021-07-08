@@ -35,7 +35,6 @@ function App() {
   let countdowntimerId
 
   function showDynamicInterstitial() {
-    console.log("Executing");
     document.getElementById("websdk").innerHTML = `<ins class="adsbyvmax" id="p_interstitial" data-adspot-key="2eca23dc" data-pkg-name="com.aadeshk.wammyjio"></ins>`;
   };
 
@@ -159,9 +158,9 @@ function App() {
       <div className="absolute flex items-center justify-around w-8/12 top-5 lg:top-20">
         <h1 className="p-2 text-3xl text-gray-800"> Whack-A-Mole</h1>
       </div>
-      <div className="absolute z-40 w-56 h-56 top-15" id="websdk">
+      {/* <div className="absolute z-40 w-56 h-56 top-15" id="websdk">
 
-      </div>
+      </div> */}
       <h1 className="p-2 text-2xl font-light text-gray-800">{name}</h1>
 
       <div className="flex items-center justify-between w-10/12 mb-12 lg:w-3/12 lg:m-12">
