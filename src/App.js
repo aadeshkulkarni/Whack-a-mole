@@ -40,7 +40,6 @@ function App() {
 
   useEffect(() => {
     ReactGA.pageview(window.location.pathname)
-    showDynamicInterstitial();
   }, [])
 
   function randomGenerator() {
@@ -63,7 +62,6 @@ function App() {
   useEffect(() => {
     if (score != 0) {
       setSoundStatus(true)
-      
     }
   }, [score])
   useEffect(() => {
@@ -91,6 +89,8 @@ function App() {
         action: name,
         label: score,
       })
+      
+      showDynamicInterstitial();
       setLoader(true)
       setLoaderMessage("Loading results...")
       setTimeout(() => {
@@ -120,7 +120,7 @@ function App() {
   }
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-full h-full bg-emerald-600 bg-opacity-80 font-raleway">
+    <div className="relative flex flex-col items-center justify-center w-full h-full bg-opacity-100 bg-emerald-600 font-raleway">
       
       {resetScreen && (
         <div className="absolute inset-0 z-10 flex flex-col items-center justify-center w-full bg-gray-800 h-hull">
@@ -189,135 +189,149 @@ function App() {
         </div>
       </div>
 
-      <div className="flex flex-wrap p-2 mb-8 border-4 border-separate rounded-lg shadow-xl border-emerald-700 border-opacity-60 bg-emerald-700 bg-opacity-60 w-320 h-320">
-        <div
-          tabIndex="1"
+      <div className="flex flex-wrap p-2 mb-8 border-4 border-separate rounded-lg shadow-xl border-emerald-700 border-opacity-60 bg-emerald-700 bg-opacity-90 w-320 h-320">
+        <button
           className={`${
             moleNumber === 1
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          }  bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer flex justify-center items-center  active:outline-none focus:outline-none focus-within:outline-none`}
-          // onFocus={() => console.log("Executed")}
-          onClick={() => {
+          }  bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer flex justify-center items-center  active:outline-none focus:outline-none focus-within:outline-none ring-0`}
+          onTouchStart={(e) => {
+            e.stopPropagation();
             timer > 0 && moleNumber === 1 && setScore(score + 50)
           }}
         >
           {moleNumber === 1 && (
             <img src={mole} className="w-16 h-16 animate-wiggle" />
           )}
-        </div>
-        <div
+        </button>
+        <button
           className={`${
             moleNumber === 2
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          }  bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center `}
-          onClick={() => {
+          }  bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center ring-0 active:outline-none focus:outline-none focus-within:outline-none `}
+          onTouchStart={(e) => { 
+            
+            e.stopPropagation();
             timer > 0 && moleNumber === 2 && setScore(score + 50)
           }}
         >
           {moleNumber === 2 && (
             <img src={mole} className="w-16 h-16 animate-wiggle" />
           )}
-        </div>
-        <div
+        </button>
+        <button
           className={`${
             moleNumber === 3
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center `}
-          onClick={() => {
+          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center ring-0 active:outline-none focus:outline-none focus-within:outline-none `}
+          onTouchStart={(e) => { 
+            
+            e.stopPropagation();
             timer > 0 && moleNumber === 3 && setScore(score + 50)
           }}
         >
           {moleNumber === 3 && (
             <img src={mole} className="w-16 h-16 animate-wiggle" />
           )}
-        </div>
-        <div
+        </button>
+        <button
           className={`${
             moleNumber === 4
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center `}
-          onClick={() => {
+          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center ring-0 active:outline-none focus:outline-none focus-within:outline-none `}
+          onTouchStart={(e) => {   
+            e.stopPropagation();
             timer > 0 && moleNumber === 4 && setScore(score + 50)
           }}
         >
           {moleNumber === 4 && (
             <img src={mole} className="w-16 h-16 animate-wiggle" />
           )}
-        </div>
-        <div
+        </button>
+        <button
           className={`${
             moleNumber === 5
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center `}
-          onClick={() => {
+          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center ring-0 active:outline-none focus:outline-none focus-within:outline-none `}
+          onTouchStart={(e) => { 
+            
+            e.stopPropagation();
             timer > 0 && moleNumber === 5 && setScore(score + 50)
           }}
         >
           {moleNumber === 5 && (
             <img src={mole} className="w-16 h-16 animate-wiggle" />
           )}
-        </div>
-        <div
+        </button>
+        <button
           className={`${
             moleNumber === 6
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center `}
-          onClick={() => {
+          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center ring-0 active:outline-none focus:outline-none focus-within:outline-none `}
+          onTouchStart={(e) => { 
+            
+            e.stopPropagation();
             timer > 0 && moleNumber === 6 && setScore(score + 50)
           }}
         >
           {moleNumber === 6 && (
             <img src={mole} className="w-16 h-16 animate-wiggle" />
           )}
-        </div>
-        <div
+        </button>
+        <button
           className={`${
             moleNumber === 7
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center `}
-          onClick={() => {
+          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center ring-0 active:outline-none focus:outline-none focus-within:outline-none `}
+          onTouchStart={(e) => { 
+            
+            e.stopPropagation();
             timer > 0 && moleNumber === 7 && setScore(score + 50)
           }}
         >
           {moleNumber === 7 && (
             <img src={mole} className="w-16 h-16 animate-wiggle" />
           )}
-        </div>
-        <div
+        </button>
+        <button
           className={`${
             moleNumber === 8
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center `}
-          onClick={() => {
+          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center ring-0 active:outline-none focus:outline-none focus-within:outline-none `}
+          onTouchStart={(e) => { 
+            
+            e.stopPropagation();
             timer > 0 && moleNumber === 8 && setScore(score + 50)
           }}
         >
           {moleNumber === 8 && (
             <img src={mole} className="w-16 h-16 animate-wiggle" />
           )}
-        </div>
-        <div
+        </button>
+        <button
           className={`${
             moleNumber === 9
               ? "bg-gradient-to-r from-gray-900 to-black"
               : "bg-green-800"
-          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center `}
-          onClick={() => {
+          } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center ring-0 active:outline-none focus:outline-none focus-within:outline-none `}
+          onTouchStart={(e) => { 
+            
+            e.stopPropagation();
             timer > 0 && moleNumber === 9 && setScore(score + 50)
           }}
         >
           {moleNumber === 9 && (
             <img src={mole} className="w-16 h-16 animate-wiggle" />
           )}
-        </div>
+        </button>
       </div>
       {/* <h6
         className="absolute py-2 text-sm font-semibold bottom-2 hover:opacity-50 animate-pulse"
