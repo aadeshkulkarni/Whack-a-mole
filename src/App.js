@@ -200,6 +200,10 @@ function App() {
             e.stopPropagation();
             timer > 0 && moleNumber === 1 && setScore(score + 50)
           }}
+          onClick={(e) => {
+            e.stopPropagation();
+            timer > 0 && moleNumber === 1 && setScore(score + 50)
+          }}
         >
           {moleNumber === 1 && (
             <img src={mole} className="w-16 h-16 animate-wiggle" />
@@ -212,7 +216,10 @@ function App() {
               : "bg-green-800"
           }  bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center ring-0 active:outline-none focus:outline-none focus-within:outline-none `}
           onTouchStart={(e) => { 
-            
+            e.stopPropagation();
+            timer > 0 && moleNumber === 2 && setScore(score + 50)
+          }}
+          onClick={(e) => {
             e.stopPropagation();
             timer > 0 && moleNumber === 2 && setScore(score + 50)
           }}
@@ -232,6 +239,10 @@ function App() {
             e.stopPropagation();
             timer > 0 && moleNumber === 3 && setScore(score + 50)
           }}
+          onClick={(e) => {
+            e.stopPropagation();
+            timer > 0 && moleNumber === 3 && setScore(score + 50)
+          }}
         >
           {moleNumber === 3 && (
             <img src={mole} className="w-16 h-16 animate-wiggle" />
@@ -247,6 +258,10 @@ function App() {
             e.stopPropagation();
             timer > 0 && moleNumber === 4 && setScore(score + 50)
           }}
+          onClick={(e) => {
+            e.stopPropagation();
+            timer > 0 && moleNumber === 4 && setScore(score + 50)
+          }}
         >
           {moleNumber === 4 && (
             <img src={mole} className="w-16 h-16 animate-wiggle" />
@@ -259,7 +274,10 @@ function App() {
               : "bg-green-800"
           } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center ring-0 active:outline-none focus:outline-none focus-within:outline-none `}
           onTouchStart={(e) => { 
-            
+            e.stopPropagation();
+            timer > 0 && moleNumber === 5 && setScore(score + 50)
+          }}
+          onClick={(e) => {
             e.stopPropagation();
             timer > 0 && moleNumber === 5 && setScore(score + 50)
           }}
@@ -279,6 +297,10 @@ function App() {
             e.stopPropagation();
             timer > 0 && moleNumber === 6 && setScore(score + 50)
           }}
+          onClick={(e) => {
+            e.stopPropagation();
+            timer > 0 && moleNumber === 6 && setScore(score + 50)
+          }}
         >
           {moleNumber === 6 && (
             <img src={mole} className="w-16 h-16 animate-wiggle" />
@@ -292,6 +314,10 @@ function App() {
           } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center ring-0 active:outline-none focus:outline-none focus-within:outline-none `}
           onTouchStart={(e) => { 
             
+            e.stopPropagation();
+            timer > 0 && moleNumber === 7 && setScore(score + 50)
+          }}
+          onClick={(e) => {
             e.stopPropagation();
             timer > 0 && moleNumber === 7 && setScore(score + 50)
           }}
@@ -311,6 +337,10 @@ function App() {
             e.stopPropagation();
             timer > 0 && moleNumber === 8 && setScore(score + 50)
           }}
+          onClick={(e) => {
+            e.stopPropagation();
+            timer > 0 && moleNumber === 8 && setScore(score + 50)
+          }}
         >
           {moleNumber === 8 && (
             <img src={mole} className="w-16 h-16 animate-wiggle" />
@@ -323,7 +353,10 @@ function App() {
               : "bg-green-800"
           } bg-opacity-90 h-100 w-100 m-0.5 shadow-inner hover:bg-green-900 cursor-pointer active:bg-green-700 flex justify-center items-center ring-0 active:outline-none focus:outline-none focus-within:outline-none `}
           onTouchStart={(e) => { 
-            
+            e.stopPropagation();
+            timer > 0 && moleNumber === 9 && setScore(score + 50)
+          }}
+          onClick={(e) => {
             e.stopPropagation();
             timer > 0 && moleNumber === 9 && setScore(score + 50)
           }}
